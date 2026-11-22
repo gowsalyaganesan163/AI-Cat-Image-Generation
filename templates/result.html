@@ -1,0 +1,175 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>AI Image Generation Results</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+    <style>
+        .result-container {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 25px;
+            text-align: center;
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .result-card {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+        }
+
+        .result-card img {
+            width: 100%;
+            max-width: 350px;
+            aspect-ratio: 1 / 1;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+
+        .result-card h3 {
+            margin-bottom: 15px;
+        }
+
+        .back-button {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 12px 25px;
+            background: #2563eb;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+        }
+
+        .back-button:hover {
+            background: #1d4ed8;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="result-container">
+
+        <h1>AI Image Generation Results</h1>
+
+        <h2>Selected Model: {{ model }}</h2>
+
+
+        <!-- AUTOENCODER RESULT -->
+
+        {% if model == "Autoencoder" %}
+
+        <div class="results-grid">
+
+            <div class="result-card">
+
+                <h3>Original Cat Image</h3>
+
+                <img src="{{ original }}"
+                     alt="Original cat image">
+
+            </div>
+
+
+            <div class="result-card">
+
+                <h3>Autoencoder Reconstruction</h3>
+
+                <img src="{{ generated }}"
+                     alt="Autoencoder reconstructed image">
+
+            </div>
+
+        </div>
+
+
+        <!-- DCGAN RESULT -->
+
+        {% elif model == "DCGAN" %}
+
+        <div class="results-grid">
+
+            <div class="result-card">
+
+                <h3>DCGAN Generated Cat</h3>
+
+                <img src="{{ generated }}"
+                     alt="DCGAN generated image">
+
+            </div>
+
+        </div>
+
+
+        <!-- BOTH MODELS COMPARISON -->
+
+        {% elif model == "Comparison" %}
+
+        <h2>Model Comparison</h2>
+
+        <div class="results-grid">
+
+            <div class="result-card">
+
+                <h3>Original Cat Image</h3>
+
+                <img src="{{ original }}"
+                     alt="Original cat image">
+
+            </div>
+
+
+            <div class="result-card">
+
+                <h3>Autoencoder Output</h3>
+
+                <img src="{{ autoencoder_output }}"
+                     alt="Autoencoder reconstruction">
+
+            </div>
+
+
+            <div class="result-card">
+
+                <h3>DCGAN Generated Image</h3>
+
+                <img src="{{ gan_output }}"
+                     alt="DCGAN generated cat">
+
+            </div>
+
+        </div>
+
+        {% endif %}
+
+
+        <a href="{{ url_for('home') }}"
+           class="back-button">
+
+            Generate Another Image
+
+        </a>
+
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,109 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Cat Image Generator</title>
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <div class="main-container">
+
+        <div class="header">
+            <div class="cat-icon">🐱</div>
+            <h1>AI Cat Image Generator</h1>
+            <p>Reconstruct and generate beautiful cat images using Deep Learning</p>
+        </div>
+
+        <div class="form-card">
+
+            <h2>Explore AI Models</h2>
+            <p class="subtitle">Choose a model to get started</p>
+
+            <form action="/generate"
+                  method="POST"
+                  enctype="multipart/form-data">
+
+                <label for="model">Select AI Model</label>
+
+                <select name="model" id="model" required>
+                    <option value="autoencoder">Autoencoder</option>
+                    <option value="gan">DCGAN</option>
+                    <option value="compare">Both Models - Comparison</option>
+                </select>
+
+                <div id="upload-section">
+                    <label for="image">Upload Your Cat Image</label>
+
+                    <div class="upload-box">
+                        <div class="upload-icon">📷</div>
+                        <p>Choose an image from your device</p>
+                        <input type="file"
+                               name="image"
+                               id="image"
+                               accept="image/*">
+                    </div>
+                </div>
+
+                <button type="submit">
+                    ✨ Generate Image
+                </button>
+
+            </form>
+
+        </div>
+
+        <div class="features">
+
+            <div class="feature-card">
+                <span>🔄</span>
+                <h3>Autoencoder</h3>
+                <p>Reconstructs an uploaded cat image.</p>
+            </div>
+
+            <div class="feature-card">
+                <span>🎨</span>
+                <h3>DCGAN</h3>
+                <p>Creates new cat images using random noise.</p>
+            </div>
+
+            <div class="feature-card">
+                <span>⚖️</span>
+                <h3>Comparison</h3>
+                <p>Compares the outputs of both models.</p>
+            </div>
+
+        </div>
+
+        <footer>
+            <p>AI-Based Cat Image Reconstruction and Generation</p>
+            <p>Powered by Flask, TensorFlow and Deep Learning</p>
+        </footer>
+
+    </div>
+
+    <script>
+        const modelSelect = document.getElementById("model");
+        const uploadSection = document.getElementById("upload-section");
+        const imageInput = document.getElementById("image");
+
+        function updateUploadField() {
+            if (modelSelect.value === "gan") {
+                uploadSection.style.display = "none";
+                imageInput.required = false;
+            } else {
+                uploadSection.style.display = "block";
+                imageInput.required = true;
+            }
+        }
+
+        modelSelect.addEventListener("change", updateUploadField);
+        updateUploadField();
+    </script>
+
+</body>
+</html>

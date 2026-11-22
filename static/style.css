@@ -1,0 +1,170 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #17143b, #493b91, #7563c7);
+    color: white;
+    padding: 35px 20px;
+}
+
+.main-container {
+    max-width: 1000px;
+    margin: auto;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.cat-icon {
+    font-size: 55px;
+    margin-bottom: 10px;
+}
+
+.header h1 {
+    font-size: 36px;
+    margin-bottom: 12px;
+}
+
+.header p {
+    color: #dedaf8;
+    font-size: 16px;
+}
+
+.form-card {
+    max-width: 550px;
+    margin: auto;
+    background: white;
+    color: #29234c;
+    padding: 35px;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+}
+
+.form-card h2 {
+    text-align: center;
+    font-size: 25px;
+}
+
+.subtitle {
+    text-align: center;
+    color: #777;
+    margin: 10px 0 25px;
+}
+
+label {
+    display: block;
+    font-weight: 600;
+    margin: 18px 0 10px;
+}
+
+select {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #d4d0e8;
+    border-radius: 9px;
+    font-size: 15px;
+    background: #faf9ff;
+    color: #29234c;
+}
+
+.upload-box {
+    background: #f5f3ff;
+    border: 2px dashed #8b78d8;
+    border-radius: 12px;
+    text-align: center;
+    padding: 25px 15px;
+    margin-top: 10px;
+}
+
+.upload-icon {
+    font-size: 35px;
+    margin-bottom: 10px;
+}
+
+.upload-box p {
+    color: #686080;
+    margin-bottom: 15px;
+}
+
+input[type="file"] {
+    max-width: 100%;
+    font-size: 13px;
+}
+
+button {
+    width: 100%;
+    margin-top: 25px;
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(90deg, #6852c5, #9278ed);
+    color: white;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(104, 82, 197, 0.3);
+}
+
+.features {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 35px;
+}
+
+.feature-card {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.12);
+    padding: 25px 15px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+}
+
+.feature-card span {
+    font-size: 32px;
+}
+
+.feature-card h3 {
+    margin: 12px 0;
+}
+
+.feature-card p {
+    color: #e1dcfa;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+footer {
+    text-align: center;
+    margin-top: 35px;
+    color: #dedaf8;
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+@media (max-width: 650px) {
+    .header h1 {
+        font-size: 27px;
+    }
+
+    .features {
+        grid-template-columns: 1fr;
+    }
+
+    .form-card {
+        padding: 25px 18px;
+    }
+}
